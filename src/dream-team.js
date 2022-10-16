@@ -13,10 +13,23 @@ const { NotImplementedError } = require('../extensions/index.js');
  * createDreamTeam(['Olivia', 1111, 'Lily', 'Oscar', true, null]) => 'LOO'
  *
  */
-function createDreamTeam(/* members */) {
-  throw new NotImplementedError('Not implemented');
-  // remove line with error and write your code here
+ function createDreamTeam(members) {
+    if(!Array.isArray(members)){
+      return false
+    }
+  //пробежать по массиву, проверить тип элемента массива и если он строка, забрать у него первую букву
+
+  let secretName = '';
+
+  const secretMessage = members.map(firstLetter => {
+      if (typeof firstLetter === 'string'){
+        let withoutProb = firstLetter.replace(/\s/g,'').toUpperCase();
+        secretName+=withoutProb[0];
+      }
+  });
+  return(secretName.split('').sort().join(''))
 }
+
 
 module.exports = {
   createDreamTeam

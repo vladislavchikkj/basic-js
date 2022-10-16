@@ -19,8 +19,8 @@ const HALF_LIFE_PERIOD = 5730;
  */
  function dateSample(sampleActivity) {
   if (sampleActivity && typeof sampleActivity == 'string' && sampleActivity>0 && sampleActivity < MODERN_ACTIVITY && isFinite(sampleActivity)==true) {  
-    let k =  0.693 / HALF_LIFE_PERIOD;
-    return Math.ceil(Math.log(MODERN_ACTIVITY/sampleActivity) / k)
+    let x =  0.693 / HALF_LIFE_PERIOD;
+    return Math.ceil(Math.log(MODERN_ACTIVITY/sampleActivity) / x)
   }
   else {return false};
 }
